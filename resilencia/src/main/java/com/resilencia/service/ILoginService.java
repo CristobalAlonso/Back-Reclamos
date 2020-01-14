@@ -4,5 +4,6 @@ import com.resilencia.model.Login;
 
 public interface ILoginService {
 	Login saveLogin(Login login);
-	Login findById(long id);
+	boolean findByEmailAndContraseña(String email, String contraseña);
+	Login findByEmail(String email);
 }

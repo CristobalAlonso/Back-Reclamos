@@ -18,7 +18,7 @@ public class LoginImp implements ILoginService{
 		Login loginLocal=null;
 		try {
 			loginLocal= loginRepository.save(login);
-			//loginLocal			
+			//loginLocal		
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -26,15 +26,28 @@ public class LoginImp implements ILoginService{
 	}
 
 	@Override
-	public Login findById(long id) {
+	public boolean findByEmailAndContraseña(String email, String contraseña) {
+		boolean existUser=false;
 		Login loginLocal=null;
 		try {
-			
-			//loginLocal			
+			loginLocal=loginRepository.findByEmailAndContraseña(email, contraseña);
+			if(null != loginLocal) {
+				existUser=true;
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return existUser;
+	}
+
+	@Override
+	public Login findByEmail(String email) {
+		Login loginLocal=null;
+		try {
+			loginLocal=loginRepository.findByEmail(email);
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		return loginLocal;
 	}
-
 }
