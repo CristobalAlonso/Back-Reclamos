@@ -24,6 +24,9 @@ public class Ejecutivo {
 	
 	@Column(name="A_section", nullable = false)
 	private boolean A_section;
+	
+	@Column(name="Pemission")
+	private String permission="Ejecutivo";
 
 	public String getMail() {
 		return mail;
@@ -56,6 +59,22 @@ public class Ejecutivo {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+
+	public boolean isA_section() {
+		return A_section;
+	}
+
+	public void setA_section(boolean a_section) {
+		A_section = a_section;
+	}
+
+	public String getPermission() {
+		return permission;
+	}
+
+	public void setPermission(String permission) {
+		this.permission = permission;
+	}
 	
-	
+		
 }

@@ -1,9 +1,14 @@
 package com.resilencia.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import com.resilencia.model.Ejecutivo;
 
-public interface ExecutiveRepo extends CrudRepository<Ejecutivo, String>{
-
+public interface ExecutiveRepo extends JpaRepository<Ejecutivo, String>{
+	Ejecutivo findByMailAndPass(String email, String contraseña);
+	Ejecutivo findByMail(String mail);
+	List<Ejecutivo> findAll();
 }
