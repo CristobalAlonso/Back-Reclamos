@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.resilencia.dto.EjecutivoDto;
 import com.resilencia.dto.EjecutivoInfoDto;
+import com.resilencia.dto.EjecutivoMailDto;
 import com.resilencia.imp.ExecutiveImp;
 import com.resilencia.model.Ejecutivo;
 import com.resilencia.util.QueryResult;
@@ -63,6 +64,19 @@ public class ExecutiveController {
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Ejecutivo> getEjexecutives() {
 		return this.excutiveImp.findAll();
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public boolean deleteEjecutivo(@RequestBody EjecutivoMailDto ejecutivo) {
+		boolean res=false;
+		try {
+			excutiveImp.deleteById(ejecutivo.getMail());
+			res=true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 }

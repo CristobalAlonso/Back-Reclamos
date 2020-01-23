@@ -60,5 +60,17 @@ public class ExecutiveImp implements IExecutiveService{
 	public List<Ejecutivo> findAll() {
 		return this.executiveRepo.findAll();
 	}
+
+	@Override
+	public boolean deleteById(String email) {
+		boolean res=false;
+		try {
+			executiveRepo.deleteById(email);
+			res=true;
+		} catch (Exception e) {
+			System.out.println("Error ");
+		}
+		return res;
+	}
 		
 }

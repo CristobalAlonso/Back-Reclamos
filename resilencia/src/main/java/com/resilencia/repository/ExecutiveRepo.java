@@ -11,4 +11,5 @@ public interface ExecutiveRepo extends JpaRepository<Ejecutivo, String>{
 	Ejecutivo findByMailAndPass(String email, String contraseña);
 	Ejecutivo findByMail(String mail);
 	List<Ejecutivo> findAll();
+	void deleteById(String string);
 }

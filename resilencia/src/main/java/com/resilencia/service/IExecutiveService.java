@@ -14,7 +14,7 @@ public interface IExecutiveService {
 	//este metodo busca por el correo y la contraseña retorna boolean
 	boolean findByMailAndPass(String email, String contraseña);
 	Ejecutivo findByMail(String mail);
-	
 	List<Ejecutivo> findAll();
+	boolean deleteById(String email);
 
 }
