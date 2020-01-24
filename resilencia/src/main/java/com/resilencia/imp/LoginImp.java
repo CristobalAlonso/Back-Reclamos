@@ -1,5 +1,7 @@
 package com.resilencia.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,5 +51,10 @@ public class LoginImp implements ILoginService{
 			ex.printStackTrace();
 		}
 		return loginLocal;
+	}
+
+	@Override
+	public List<Login> findAll() {
+		return loginRepository.findAll();
 	}
 }

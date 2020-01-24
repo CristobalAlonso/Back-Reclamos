@@ -1,5 +1,7 @@
 package com.resilencia.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +58,17 @@ public class LoginController {
 			loginController=loginImp.findByEmail(login.getEmail());
 		}catch(Exception ex) {
 			ex.printStackTrace(); 
+		}
+		return loginController;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Login> getUser() {
+		List<Login> loginController=null;
+		try {
+			loginController=loginImp.findAll();
+		}catch(Exception ex) {
+			ex.printStackTrace();
 		}
 		return loginController;
 	}

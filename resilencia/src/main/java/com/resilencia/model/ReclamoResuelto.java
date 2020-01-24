@@ -9,11 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "Reclamo") //nombre de la tabla
-public class Reclamo {
+public class ReclamoResuelto {
 	
 	@Id
 	@Column(name= "id_reclamo", unique = true)
-	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Column(name= "tipo_reclamo", nullable= false)
@@ -88,7 +87,5 @@ public class Reclamo {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	
+	}	
 }

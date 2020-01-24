@@ -47,13 +47,13 @@ public class ExecutiveImp implements IExecutiveService{
 
 	@Override
 	public Ejecutivo findByMail(String mail) {
-		Ejecutivo ejeImp=null;
+		Ejecutivo eje=null;
 		try {
-			ejeImp=executiveRepo.findByMail(mail);
+			eje=executiveRepo.findByMail(mail);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return ejeImp;
+		return eje;
 	}
 
 	@Override
@@ -64,9 +64,13 @@ public class ExecutiveImp implements IExecutiveService{
 	@Override
 	public boolean deleteById(String email) {
 		boolean res=false;
+		Ejecutivo eje=null;
 		try {
-			executiveRepo.deleteById(email);
-			res=true;
+			eje=executiveRepo.findByMail(email);
+			if(null != eje) {
+				executiveRepo.deleteById(email);
+				res=true;
+			}
 		} catch (Exception e) {
 			System.out.println("Error ");
 		}

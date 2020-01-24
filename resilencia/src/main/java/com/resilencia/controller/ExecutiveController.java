@@ -51,7 +51,7 @@ public class ExecutiveController {
 	}
 	
 	@RequestMapping(value="/OnExecutive",method = RequestMethod.POST)
-	public Ejecutivo resEjecutivo(@RequestBody EjecutivoInfoDto ejecutivo) {
+	public Ejecutivo resEjecutivo(@RequestBody EjecutivoMailDto ejecutivo) {
 		Ejecutivo ejeController=null;
 		try {
 			ejeController=excutiveImp.findByMail(ejecutivo.getMail());
@@ -66,12 +66,11 @@ public class ExecutiveController {
 		return this.excutiveImp.findAll();
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE)
+	@RequestMapping(value="Delete",method = RequestMethod.POST)
 	public boolean deleteEjecutivo(@RequestBody EjecutivoMailDto ejecutivo) {
 		boolean res=false;
 		try {
-			excutiveImp.deleteById(ejecutivo.getMail());
-			res=true;
+			res=excutiveImp.deleteById(ejecutivo.getMail());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
